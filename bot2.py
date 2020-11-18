@@ -41,14 +41,10 @@ passw.send_keys(pw)
 time.sleep(3)
 button1=driver.find_element_by_id("idSIButton9").click()
 time.sleep(3)
-button2=driver.find_element_by_id("idSIButton9")
-button2.click()
+button2=driver.find_element_by_id("idSIButton9").click()
 time.sleep(3)
-button3=driver.find_element_by_link_text("Use the web app instead")
-button3.click()
+button3=driver.find_element_by_link_text("Use the web app instead").click()
 time.sleep(5)
-#button4=driver.find_element_by_id("stv-item-desc-")
-#button4.click()
 
 #choosing team
 teams=driver.find_element_by_xpath('//*[@id="searchInputField"]')
@@ -61,7 +57,7 @@ teams.send_keys(Keys.ENTER)
 
 
 
-#leaving call after mentioned minutes
+#staying
 time.sleep(60*minut)
 driver.quit()
 
