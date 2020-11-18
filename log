@@ -1,2 +1,8 @@
 Log 0.1
 -Added Options()
+
+Log 0.2
+-Added Bot2.py 
+  -Reads email and password from text document 
+  -team is not hardcoded
+ 
