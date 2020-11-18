@@ -26,7 +26,7 @@ opt.add_experimental_option("prefs", { \
 "profile.default_content_setting_values.notifications": 1 
 })
 
-PATH="C:\Program Files (x86)\chromedriver.exe"
+PATH=r"C:\Program Files (x86)\chromedriver.exe"
 driver=webdriver.Chrome(options=opt, executable_path=PATH)
 driver.get("https://teams.microsoft.com")
 
@@ -39,8 +39,7 @@ signin.send_keys(Keys.RETURN)
 passw=driver.find_element_by_id("i0118")
 passw.send_keys(pw)
 time.sleep(3)
-button1=driver.find_element_by_id("idSIButton9")
-button1.click()
+button1=driver.find_element_by_id("idSIButton9").click()
 time.sleep(3)
 button2=driver.find_element_by_id("idSIButton9")
 button2.click()
@@ -57,6 +56,14 @@ teams.send_keys(team)
 time.sleep(5)
 teams.send_keys(Keys.ARROW_DOWN)
 teams.send_keys(Keys.ENTER)
+
+#entering call
+
+
+
+#leaving call after mentioned minutes
+time.sleep(60*minut)
+driver.quit()
 
 
 
