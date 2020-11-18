@@ -5,14 +5,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import datetime
-import signal
 import time
 
-email=input("Enter email:")
-pw=input("Enter password:")
+email=input("Enter email:") #mail of msteams
+pw=input("Enter password:") #pass of msteams
 
 
-PATH="C:\Program Files (x86)\chromedriver.exe"
+PATH="C:\Program Files (x86)\chromedriver.exe" #Enter path of chromedriver saved in your computer
 driver=webdriver.Chrome(PATH)
 
 driver.get("https://teams.microsoft.com")
