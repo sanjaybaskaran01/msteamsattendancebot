@@ -7,14 +7,29 @@ from selenium.common.exceptions import TimeoutException
 import datetime
 import time
 
-email=input("Enter email:") #mail of msteams
-pw=input("Enter password:") #pass of msteams
+email=input("Enter email:")
+pw=input("Enter password:")
 
 
-PATH="C:\Program Files (x86)\chromedriver.exe" #Enter path of chromedriver saved in your computer
-driver=webdriver.Chrome(PATH)
+opt = Options()
+opt.add_argument("--disable-infobars")
+opt.add_argument("start-maximized")
+opt.add_argument("--disable-extensions")
+# Pass the argument 1 to allow and 2 to block
+opt.add_experimental_option("prefs", { \
+"profile.default_content_setting_values.media_stream_mic": 1, 
+"profile.default_content_setting_values.media_stream_camera": 1,
+"profile.default_content_setting_values.geolocation": 1, 
+"profile.default_content_setting_values.notifications": 1 
+})
 
+PATH="C:\Program Files (x86)\chromedriver.exe" #enter the path of chromedriver.exe
+driver=webdriver.Chrome(chrome_options=opt, executable_path=PATH)
 driver.get("https://teams.microsoft.com")
+
+
+
+#Login
 signin=driver.find_element_by_id("i0116")
 signin.send_keys(email)
 signin.send_keys(Keys.RETURN)
@@ -32,9 +47,16 @@ button3.click()
 time.sleep(5)
 #button4=driver.find_element_by_id("stv-item-desc-")
 #button4.click()
-button5=driver.find_element_by_xpath('//*[@id="favorite-teams-panel"]/div/div[1]/div[6]/div[3]/div/ng-include/div').click()
+
+#choosing team
+choose_team=driver.find_element_by_xpath('//*[@id="favorite-teams-panel"]/div/div[1]/div[2]/div[6]/div/ng-include/div').click()
 time.sleep(3)
-button6=driver.find_element_by_xpath('//*[@id="m1605691047669"]/calling-join-button/button/span').click()
+joinbutton=driver.find_element_by_xpath('//*[@id="m1605624438686"]/calling-join-button/button').click()
+
+
+camera=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[2]/toggle-button[1]/div/button/span[1]').click()
+#joinnow=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[1]/div/div/button').clic()
+
 
 
 
