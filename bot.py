@@ -23,13 +23,13 @@ opt.add_experimental_option("prefs", { \
 "profile.default_content_setting_values.notifications": 1 
 })
 
-PATH="C:\Program Files (x86)\chromedriver.exe" #enter the path of chromedriver.exe
+PATH="C:\Program Files (x86)\chromedriver.exe"
 driver=webdriver.Chrome(chrome_options=opt, executable_path=PATH)
 driver.get("https://teams.microsoft.com")
 
 
 
-#Login
+#login
 signin=driver.find_element_by_id("i0116")
 signin.send_keys(email)
 signin.send_keys(Keys.RETURN)
@@ -52,10 +52,16 @@ time.sleep(5)
 choose_team=driver.find_element_by_xpath('//*[@id="favorite-teams-panel"]/div/div[1]/div[2]/div[6]/div/ng-include/div').click()
 time.sleep(3)
 joinbutton=driver.find_element_by_xpath('//*[@id="m1605624438686"]/calling-join-button/button').click()
+time.sleep(2)
 
-
+#turning camera and audio off
 camera=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[2]/toggle-button[1]/div/button/span[1]').click()
-#joinnow=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[1]/div/div/button').clic()
+time.sleep(2)
+audio=driver.find_element_by_xpath('//*[@id="preJoinAudioButton"]/div/button').click()
+time.sleep(2)
+
+#finally joining
+joinnow=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[1]/div/div/button').click()
 
 
 
