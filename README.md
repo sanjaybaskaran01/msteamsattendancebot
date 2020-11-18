@@ -1,6 +1,6 @@
 # msteamattendancebot
 
-Modules required: selenium 
+Modules required: selenium
 Modules used: selenium,datetime,time
 
 #installations
