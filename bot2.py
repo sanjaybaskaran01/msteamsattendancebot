@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-import datetime
 import time
 
 #reading email and pass and getting input from user
@@ -52,8 +51,20 @@ teams.send_keys(team)
 time.sleep(5)
 teams.send_keys(Keys.ARROW_DOWN)
 teams.send_keys(Keys.ENTER)
+time.sleep(5)
 
 #entering call
+joinbutton=driver.find_element_by_xpath('//*[@id="m1600884646226"]/calling-join-button/button').click() #have to hardcode the xpath of the join element present inside team
+time.sleep(2)
+
+#to turn off camera and audio
+camera=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[2]/toggle-button[1]/div/button/span[1]').click()
+time.sleep(2)
+audio=driver.find_element_by_xpath('//*[@id="preJoinAudioButton"]/div/button').click()
+time.sleep(10)
+
+#to join the meeting
+joinnow=driver.find_element_by_xpath('//*[@id="page-content-wrapper"]/div[1]/div/calling-pre-join-screen/div/div/div[2]/div[1]/div[2]/div/div/section/div[1]/div/div/button').click()
 
 
 
